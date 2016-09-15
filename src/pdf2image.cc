@@ -320,13 +320,13 @@ int main(int argc, char *argv[]) {
     th = GString::fromInt(static_cast<int>(scale*h));
     gsCmd->append(th);
     gsCmd->append(" -q \"");
-    gsCmd->append(psFileName);
+    gsCmd->append(FileName);
     gsCmd->append("\"");
 
     if( !executeCommand(gsCmd->getCString()) && !errQuiet) {
       error(-1, "Failed to launch Ghostscript!\n");
     }
-    unlink(psFileName->getCString());
+    unlink(htmlFileName->getCString());
     delete tw;
     delete th;
     delete sc;
